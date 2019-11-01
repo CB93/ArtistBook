@@ -1,9 +1,7 @@
-const express = require('express')
-const path = require('path')
-const bodyParser = require('body-parser');
-
-
-const app = express()
+let express = require('express')
+let app = express();
+let bodyParser = require('body-parser');
+let path = require('path');
 
 const expressHbs = require('express-handlebars');
 app.engine(
@@ -18,25 +16,22 @@ app.engine(
   app.set('views', 'views');
 
 // parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false })) // middleware
 
 // parse application/json
-app.use(express.static(path.join(__dirname,'public')));
-
 app.use(bodyParser.json()) // middleware
 
-// @TODO add auth middleware
-// @TODO add registration page
-// @TODO add logout route
+let playerRoutes = require('./routes/peoples');
 
-
-let login = require('./routes/login')
+app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/', function (req,res) {
-    res.render('home', { pageTitle: 'People App', heading: 'Welcome to People App'});
+    res.render('home', { pageTitle: 'People App', heading: 'Welcome to Artist App'});
 });
 
-app.use(login)
+app.use(playerRoutes);
 
-const port = process.env.PORT || 3000
-app.listen(port, () => console.log(`App listening on port ${port}`))
+app.listen(3000, () => console.log('Server ready'))
+
+
+
