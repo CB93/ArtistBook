@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser');
+
 
 const app = express()
 
@@ -15,14 +17,26 @@ app.engine(
   app.set('view engine', 'hbs');
   app.set('views', 'views');
 
+// parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
+
+// parse application/json
 app.use(express.static(path.join(__dirname,'public')));
+
+app.use(bodyParser.json()) // middleware
 
 // @TODO add auth middleware
 // @TODO add registration page
 // @TODO add logout route
 
-app.use('/', require('./routes/login'))
+
+let login = require('./routes/login')
+
+app.get('/', function (req,res) {
+    res.render('home', { pageTitle: 'People App', heading: 'Welcome to People App'});
+});
+
+app.use(login)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`App listening on port ${port}`))
