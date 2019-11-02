@@ -2,16 +2,11 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const mysql = require('mysql');
 const expressHbs = require('express-handlebars');
-const playerRoutes = require('./routes/peoples');
+const playerRoutes = require('./route/artistRouter');
+const con = require("./util/database.js")
 
-app.use(bodyParser.urlencoded({ extended: false })) // middleware
-app.use(bodyParser.json()) // middleware
-app.use(playerRoutes);
-app.use(express.static(path.join(__dirname,'public')));
-
-// Handlbars middleware
+// Using hbs template engine
 app.engine('hbs',expressHbs ({
       defaultLayout: 'main-layout',
       layoutsDir: 'views/layouts/',
@@ -22,21 +17,20 @@ app.engine('hbs',expressHbs ({
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-// Connect to mySQL database
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_KEY
-});
+// connecting route to database
+app.use(function(req, res, next) {
+  req.con = con
+  next()
+})
 
-db.connect((err) => {
-if (err) throw err;
-});
+app.use(bodyParser.urlencoded({ extended: false })) // middleware
+app.use(bodyParser.json()) // middleware
+app.use(playerRoutes);
+app.use(express.static(path.join(__dirname,'public')));
 
-// Serves home.hbs
-app.get('/', function (req,res) {
-  res.render('home', { pageTitle: 'Artist App', heading: 'Welcome to Artist App'});
-});
+const artistRouter = require("./route/artistRouter")
+
+app.use("/artist", artistRouter)
 
 app.listen(3000, () => console.log('Server ready'))
 
