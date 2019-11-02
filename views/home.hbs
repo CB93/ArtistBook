@@ -3,6 +3,15 @@
         <h1>{{heading}}</h1>
     </div>
     <div id="login-form">
-        {{>loginForm}}
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="form-email" placeholder="Email">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="form-password" placeholder="Password">
+            </div>
+            <a href="#" class="btn btn-primary btn-md" role="button">Login</a>
+            <hr>
+        </form>
     </div>
 </div>
