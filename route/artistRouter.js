@@ -5,6 +5,7 @@ const artistController = require("../controller/artistController")
 router.get("/", artistController.index)
 router.post("/login", artistController.login)
 router.get("/artist", artistController.artist)
-router.post("/artist", artistController.upload)
+router.post("/add", artistController.upload)
+router.post("/delete/:id", artistController.delete)
 
 module.exports = router;
