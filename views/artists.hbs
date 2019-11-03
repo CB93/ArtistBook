@@ -12,14 +12,14 @@
 					<div class="input-group">
 						<input type="text" id="search-input" class="form-control">
 						<span class="input-group-btn">
-							<button type="button" onclick="collapse()" class="btn btn-light">Add Artist</button>
+							<button type="button"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-light">Add Artist</button>
 							<button type="button" onclick="search()" class="btn btn-light">Search</button>
 						</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="collapse" class="collapse">
+		<div class="collapse" id="collapseExample">
 				<form class="artist-form"  id="form" name="form_name">
 					<input class="form-control" id="name" type="text" name=name maxlength="40" placeholder="Artist Name">
 					<input class="form-control" id="about"type="text" id="about" maxlength="40" placeholder="About Artist">

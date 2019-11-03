@@ -4,31 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ pageTitle }}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     {{#if homeCSS}}
-          <link href='/css/home.css' rel='stylesheet' />
+    <link href='/css/home.css' rel='stylesheet' />
     {{/if}}
     {{#if artistCSS}}
-        <link href='/css/artist.css' rel='stylesheet' />
+    <link href='/css/artist.css' rel='stylesheet' />
     {{/if}}
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Artist App</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Artist App</a>
             </div>
         </div>
     </nav>
     <main class="container pt-4">{{{body}}}</main>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{{#if artistScript}}
+<script type="text/javascript" src="/js/artist.js"></script>
+{{/if}}
 
 </html>
