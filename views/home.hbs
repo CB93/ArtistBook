@@ -3,16 +3,16 @@
         <h1>{{heading}}</h1>
     </div>
     <div id="login-form">
-        <form>
+        <form action="/login" method="post">
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="form-email" placeholder="Email">
+                <label for="exampleInputEmail1">User name</label>
+                <input name="username" class="form-control" id="form-email" placeholder="username">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="form-password" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="form-password" placeholder="Password">
             </div>
-            <a href="/login" class="btn btn-primary btn-md" role="button">Login</a>
-            <hr>
+            <input type="submit" value="Submit" class="btn btn-primary btn-md" role="button">
         </form>
+                    <hr>
+        <p id="error-field">{{validation}}</p>
     </div>
-    <div><h1>{{data}}</h1></div>
 </div>

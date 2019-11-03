@@ -1,14 +1,19 @@
 const Artist = require("../model/Artist")
 
 module.exports = {
-    index: function(req, res) {
-        res.render('home', { pageTitle: 'People App', heading: 'Welcome to People App'});
+    index: (req, res) => {
+        res.render('home', { pageTitle: 'People App', heading: 'Welcome to People App' });
     },
-    login: function(req, res) {
-        Artist.getUser(req.con, function(err,rows) {
-            console.log(rows)
-            // res.render('home', {data:rows})
+    login: (req, res) => {
+        Artist.getUser(req, data => {
+            if (data) {
+                res.redirect('/artist')
+            } else {
+                res.render('home', { pageTitle: 'People App', heading: 'Welcome to People App', validation: 'incorrect validation' })
+            }
         })
-        
+    },
+    artist: (req, res) => {
+        res.render('artists', { pageTitle: 'People App', heading: 'artist' });
     }
 }

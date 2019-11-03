@@ -3,6 +3,7 @@ const router = express.Router();
 const artistController = require("../controller/artistController")
 
 router.get("/", artistController.index)
-router.get("/login", artistController.login)
+router.post("/login", artistController.login)
+router.get("/artist", artistController.artist)
 
 module.exports = router;
