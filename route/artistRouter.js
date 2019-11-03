@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const artistController = require("../controller/artistController")
+const loginController = require("../controller/loginController")
 
-router.get("/", artistController.index)
-router.post("/login", artistController.login)
+// Login routes
+router.get("/", loginController.index)
+router.post("/login", loginController.login)
+
+// Artist routes
 router.get("/artist", artistController.artist)
 router.post("/add", artistController.upload)
 router.post("/delete/:id", artistController.delete)
