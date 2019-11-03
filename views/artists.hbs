@@ -1,8 +1,9 @@
-<div id='login-page'>
-    <div id='artist-main'>
-        <h1>{{heading}}</h1>
-    </div>
-    	<div class="search-container" id="search">
+<div id='artist-page'>
+	<div id='artist-main'>
+		<h1>{{heading}}</h1>
+	</div>
+
+	<div class="container" id="search">
 		<div class="row">
 			<div class="panel panel-default person-search">
 				<div class="panel-body">
@@ -12,23 +13,44 @@
 					<div class="input-group">
 						<input type="text" id="search-input" class="form-control">
 						<span class="input-group-btn">
-							<button type="button"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-light">Add Artist</button>
+							<button type="button" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+								aria-controls="collapseExample" class="btn btn-light">Add
+								Artist</button>
 							<button type="button" onclick="search()" class="btn btn-light">Search</button>
 						</span>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="collapse" id="collapseExample">
-				<form class="artist-form"  id="form" name="form_name">
-					<input class="form-control" id="name" type="text" name=name maxlength="40" placeholder="Artist Name">
-					<input class="form-control" id="about"type="text" id="about" maxlength="40" placeholder="About Artist">
-					<input class="form-control" id="url" type="text"  id="url" placeholder="Image URL">
-					<input type="button" value="Add" onclick="addArtist()" class="add-button btn btn-light"/>
-
-				</form>
-
+			<form action="/artist" method="post" class="artist-form" id="form" name="form_name"/>
+				<input class="form-control" id="name" type="text" name="name" maxlength="40" placeholder="Artist Name"/>
+				<input class="form-control" id="about" type="text" name="about" maxlength="40" placeholder="About Artist"/>
+				<input class="form-control" id="url" type="text" name="url" placeholder="Image URL"/>
+				<input class="add-button btn btn-light" type="submit" value="Add" role="button"/>
+			</form>
 		</div>
-		<div id='artist-area'></div>
+
+		<div id='artist-area'>
+			{{#each artist}}
+			<div class="row row-margin">
+				<div class="panel panel-default person-card">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-4">
+								<img />
+							</div>
+							<div class="col-xs-4">
+								<div class="person-info">
+									<h4>{{name}}</h4>
+									<h6>{{about}}</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 	</div>
-</div>

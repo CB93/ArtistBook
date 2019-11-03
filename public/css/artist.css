@@ -9,18 +9,31 @@ input {
 .person-search {
     margin: 0 auto;
 }
+
+img {
+	height:60px;
+	width:60px;	
+	border-radius: 4px;
+	margin-left: -30px;
+
+}
+
+h4{
+	font-family: "Times New Roman", Times, serif;
+	margin-bottom: -4px;
+}
 .person-card {
 	width: 500px;
 	height:100px;
 	display: inline-block;
-	margin-bottom: 10px;
+    margin-bottom: -10px;
 }
 #artist-main {
     padding-top: 30px;
     text-align: center;
 }
 
-.search-container{
+.container{
 	text-align: center;
 }
 

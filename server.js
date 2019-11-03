@@ -6,6 +6,8 @@ const expressHbs = require('express-handlebars');
 const playerRoutes = require('./route/artistRouter');
 const con = require("./util/database.js")
 
+
+
 // Using hbs template engine
 app.engine('hbs',expressHbs ({
       defaultLayout: 'main-layout',
