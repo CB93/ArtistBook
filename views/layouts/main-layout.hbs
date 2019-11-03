@@ -6,7 +6,12 @@
     <title>{{ pageTitle }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href='/css/home.css' rel='stylesheet' />
+    {{#if homeCSS}}
+          <link href='/css/home.css' rel='stylesheet' />
+    {{/if}}
+    {{#if artistCSS}}
+        <link href='/css/artist.css' rel='stylesheet' />
+    {{/if}}
 </head>
 
 <body>

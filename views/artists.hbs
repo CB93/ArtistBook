@@ -2,4 +2,33 @@
     <div id='artist-main'>
         <h1>{{heading}}</h1>
     </div>
+    	<div class="search-container" id="search">
+		<div class="row">
+			<div class="panel panel-default person-search">
+				<div class="panel-body">
+					<div class="row">
+						<H3 id="searchText">Artist Directory</H3>
+					</div>
+					<div class="input-group">
+						<input type="text" id="search-input" class="form-control">
+						<span class="input-group-btn">
+							<button type="button" onclick="collapse()" class="btn btn-light">Add Artist</button>
+							<button type="button" onclick="search()" class="btn btn-light">Search</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="collapse" class="collapse">
+				<form class="artist-form"  id="form" name="form_name">
+					<input class="form-control" id="name" type="text" name=name maxlength="40" placeholder="Artist Name">
+					<input class="form-control" id="about"type="text" id="about" maxlength="40" placeholder="About Artist">
+					<input class="form-control" id="url" type="text"  id="url" placeholder="Image URL">
+					<input type="button" value="Add" onclick="addArtist()" class="add-button btn btn-light"/>
+
+				</form>
+
+		</div>
+		<div id='artist-area'></div>
+	</div>
 </div>

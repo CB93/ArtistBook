@@ -1,0 +1,60 @@
+input {
+	text-align: center;
+}
+
+.add-button {
+	width:180px;
+}
+
+.person-search {
+    margin: 0 auto;
+}
+.person-card {
+	width: 500px;
+	height:100px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+#artist-main {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.search-container{
+	text-align: center;
+}
+
+.artist-form {
+	width: 500px;
+	display: inline-block;
+	text-align: center; 
+}
+
+.person-search{
+	width: 650px;
+	height: 150px;
+	display: inline-block;
+	margin-bottom: 0;
+	margin-top: 50px;
+	margin-bottom: -5px;
+}
+
+.row-margin{
+	margin-bottom: -15px;
+}
+
+.person-input {
+	width: 400px;
+}
+
+.person-info{
+	float: left;
+	text-align: left;
+	margin-left: -75px;
+	margin-top: -5px;
+}
+	
+#searchText{
+	float: left;
+	padding-left: 15px;
+}
