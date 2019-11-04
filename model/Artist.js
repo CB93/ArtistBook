@@ -18,7 +18,7 @@ module.exports = {
 	addArtist: (req) => {
 		const timestamp = new Date().getUTCMilliseconds();
 		req.con.query("INSERT INTO `artist`.`artist` (`idartist`, `name`, `about`, `pic`) VALUES ('" + timestamp
-		+ "', '" + req.body.name + "', '" + req.body.about + "', '" + req.body.url + "');")
+			+ "', '" + req.body.name + "', '" + req.body.about + "', '" + req.body.url + "');")
 	},
 
 	deleteArtist: (req) => {
@@ -26,12 +26,11 @@ module.exports = {
 	},
 
 	searchArtists: (req, callback) => {
-		console.log(`SELECT * FROM artist WHERE name LIKE '%'${req.body.search}'%'`)
 		req.con.query(`SELECT * FROM artist WHERE name LIKE '%${req.body.search}%'`, (err, res) => {
-
 			callback(res)
 		})
 	}
+	
 }
 
 
