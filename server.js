@@ -6,7 +6,7 @@ const expressHbs = require('express-handlebars');
 const playerRoutes = require('./route/artistRouter');
 const con = require("./util/database.js")
 
-
+const port = process.env.PORT || 8080;
 
 // Using hbs template engine
 app.engine('hbs',expressHbs ({
@@ -34,7 +34,7 @@ const artistRouter = require("./route/artistRouter")
 
 app.use("/artist", artistRouter)
 
-app.listen(3000, () => console.log('Server ready'))
+app.listen(port, () => console.log('Server ready'))
 
 
 
