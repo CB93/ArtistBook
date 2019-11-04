@@ -11,5 +11,6 @@ router.post("/login", loginController.login)
 router.get("/artist", artistController.artist)
 router.post("/add", artistController.upload)
 router.post("/delete/:id", artistController.delete)
+router.post("/search", artistController.search)
 
 module.exports = router;

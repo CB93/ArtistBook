@@ -10,15 +10,17 @@
 					<div class="row">
 						<H3 id="searchText">Artist Directory</H3>
 					</div>
-					<div class="input-group">
-						<input type="text" id="search-input" class="form-control">
-						<span class="input-group-btn">
-							<button type="button" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-								aria-controls="collapseExample" class="btn btn-light">Add
-								Artist</button>
-							<button type="button" onclick="search()" class="btn btn-light">Search</button>
-						</span>
-					</div>
+					<form action='/search' method="post">
+						<div class="input-group">
+							<input class="form-control" type="text" name="search" id="search-input">
+							<span class="input-group-btn">
+								<button class="btn btn-light" type="button" data-toggle="collapse" href="#collapseExample" role="button"
+									aria-expanded="false" aria-controls="collapseExample">Add
+									Artist</button>
+								<input class="btn btn-primary btn-md" role="button" type="submit" value="Search" />
+							</span>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -39,7 +41,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-xs-4">
-								<img />
+								<img src={{pic}} />
 							</div>
 							<div class="col-xs-4">
 								<div class="person-info">
@@ -48,7 +50,7 @@
 								</div>
 							</div>
 							<div class="col-xs-4">
-								<form action='/delete/:id' method="POST">
+								<form action='/delete/:id' method="post">
 									<button name="id" value={{idartist}} type="submit" class="btn btn-danger">Delete</button>
 								</form>
 							</div>

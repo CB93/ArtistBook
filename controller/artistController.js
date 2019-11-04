@@ -20,6 +20,18 @@ module.exports = {
     Artist.getArtists(req, data => {
       return res.render('artists', { pageTitle: 'artist', heading: 'Artist Page', artist: data, artistCSS: true });
     })
+  },
 
+  search: (req, res) => {
+  
+    if (req.body.search) {
+      Artist.searchArtists(req, data => {
+        console.log(data)
+        return res.render('artists', { pageTitle: 'artist', heading: 'Artist Page', artist: data, artistCSS: true });
+      })
+    }
+    // Artist.getArtists(req, data => {
+    //   return res.render('artists', { pageTitle: 'artist', heading: 'Artist Page', artist: data, artistCSS: true });
+    // })
   }
 }

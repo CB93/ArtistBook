@@ -18,10 +18,20 @@ module.exports = {
 	addArtist: (req) => {
 		const timestamp = new Date().getUTCMilliseconds();
 		req.con.query("INSERT INTO `artist`.`artist` (`idartist`, `name`, `about`, `pic`) VALUES ('" + timestamp
-			+ "', '" + req.body.name + "', '" + req.body.about + "', '" + req.body.pic + "');")
+		+ "', '" + req.body.name + "', '" + req.body.about + "', '" + req.body.url + "');")
 	},
 
 	deleteArtist: (req) => {
-		req.con.query("DELETE FROM artist WHERE idartist = '" + req.body.id + "'")
+		req.con.query(`DELETE FROM artist WHERE idartist = '${req.body.id}'`)
+	},
+
+	searchArtists: (req, callback) => {
+		console.log(`SELECT * FROM artist WHERE name LIKE '%'${req.body.search}'%'`)
+		req.con.query(`SELECT * FROM artist WHERE name LIKE '%${req.body.search}%'`, (err, res) => {
+
+			callback(res)
+		})
 	}
 }
+
+
